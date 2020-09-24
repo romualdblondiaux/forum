@@ -41,7 +41,7 @@
                 ":role"=> "ROLE_USER"
             ]);
             $insert->closeCursor();
-            header("LOCATION:index.php");
+            header("LOCATION:index.php?register=succes");
 
         }else{
             header("LOCATION:inscription.php?error=".$err);
