@@ -4,7 +4,7 @@
         $err=0;
         if(!empty($_POST['login'])){
             $login=htmlspecialchars($_POST['login']);
-            $req = $bdd->prepare("SELECT * FROM membres WHERE login=?");
+            $req = $bdd->prepare("SELECT * FROM members WHERE login=?");
             $req->execute([$login]);
             if($don=$req->fetch()){
                 $err=2;
@@ -33,7 +33,7 @@
 
         if($err==0){
             // insertion
-            $insert = $bdd->prepare("INSERT INTO membres(login,password,email,role) VALUES(:login,:pass,:mail,:role)");
+            $insert = $bdd->prepare("INSERT INTO members(login,password,email,role) VALUES(:login,:pass,:mail,:role)");
             $insert->execute([
                 ":login"=>$login,
                 ":pass"=>$hash,
