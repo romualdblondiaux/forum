@@ -15,7 +15,7 @@
         }
 
         if(!empty($_POST['email'])){
-            if(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])){
+            if(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,6}$#", $_POST['email'])){
                 $email=$_POST['email']; // pas besoin de protection, la regex a déjà tout vérif
             }else{
                 $err=4;
@@ -41,7 +41,7 @@
                 ":role"=> "ROLE_USER"
             ]);
             $insert->closeCursor();
-            header("LOCATION:index.php?register=succes");
+            header("LOCATION:index.php?register=success");
 
         }else{
             header("LOCATION:inscription.php?error=".$err);
