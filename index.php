@@ -62,7 +62,7 @@
         $posts= $bdd->query("SELECT members.login AS pseudo, members.id AS id_pseudo, post.message AS message, DATE_FORMAT(post.date, '%d/%m/%Y %Hh%im%Ss') AS mydate FROM post INNER JOIN members ON post.id_login=members.id ORDER BY post.date ASC");
         while($donPost = $posts->fetch()){
             echo "<div class='messages'>";
-                echo "<div class='auteur'>".$donPost["pseudo"]."</div>";
+                echo "<div class='auteur'><a href='member.php?id=".$donPost["id_pseudo"]."'>".$donPost["pseudo"]."</a></div>";
                 echo "<div class='date'>".$donPost["mydate"]."</div>";
                 echo "<div class='message'>".nl2br($donPost["message"])."</div>";
             echo "</div>";
