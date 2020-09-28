@@ -67,7 +67,14 @@
     ?>  
         <div class="container">   
             <h1>Bonjour <?= $_SESSION['login'] ?></h1>
+            
             <a id='deco-button' href="index.php?deco=accept">Déconnexion</a>
+            <?php
+                if($_SESSION['role']=="ROLE_ADMIN"){
+
+                    echo '<a href="admin/">Administration</a>';
+                }
+            ?>
     
             <h3>Les messages</h3>
             <?php
