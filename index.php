@@ -51,6 +51,17 @@
         header("LOCATION:index.php");
     }
 
+    if(isset($_SESSION['role'])){
+        if($_SESSION['role']=="ROLE_ADMIN"){
+            if(isset($_GET['delete'])){
+                $delete = $bdd->prepare("DELETE FROM post WHERE id=?");
+                $delete->execute([$_GET['delete']]);
+                $delete->closeCursor();
+                header("LOCATION:index.php");
+            }
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -85,8 +96,11 @@
                         echo "<div class='date'>".$donPost['mydate']."</div>";
                         echo "<div class='message'>".nl2br($donPost['message'])."</div>";
                         // affichage differentié avec le role admin
-                        if($_SESSION['role']=="ROLE_ADMIN"){ // affichage differentié avec le role admin
+                        if($_SESSION['role']=="ROLE_ADMIN"){ 
                             echo "<a href='index.php?delete=".$donPost['id_post']."' class='delete'>X</a>";
+                        }
+                        if($_SESSION['id']==$donPost['id_pseudo']){
+                            echo "<a href='modify.php?id=".$donPost['id_post']."' class='modify'>Modifier</a>";
                         }
                     echo "</div>";    
                 }

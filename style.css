@@ -112,3 +112,17 @@ input[type=submit]{
     color: white;
     text-decoration: none;
 }
+
+.modify{
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    width: 70px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color:#106b10;
+    color: white;
+    text-decoration: none;
+}
