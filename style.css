@@ -77,6 +77,7 @@ input[type=submit]{
     margin: 10px 0;
     padding: 15px;
     border-radius: 5px;
+    position: relative;
 }
 
 .auteur a{
@@ -96,4 +97,18 @@ input[type=submit]{
     padding: 15px;
     margin: 10px 0;
     resize: none;
+}
+
+.delete{
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: crimson;
+    color: white;
+    text-decoration: none;
 }
