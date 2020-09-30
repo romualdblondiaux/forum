@@ -1,8 +1,14 @@
 <?php
     session_start();
-    if(!isset($_SESSION['login'])){
+    if(isset($_SESSION['role'])){
+        if($_SESSION['role']!="ROLE_ADMIN"){
+            header("LOCATION:403.php");
+        }
+
+    }else{
         header("LOCATION:403.php");
     }
+    
     if(isset($_GET['id'])){
         $id=htmlspecialchars($_GET['id']);
         require "../connexion.php";
